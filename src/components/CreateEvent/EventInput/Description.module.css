@@ -1,0 +1,17 @@
+.Title {
+    box-sizing: border-box;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.Description {
+    width: 45%;
+    height: 120px;
+    font-size: 20px;
+    padding: 5px auto 12px 50px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #085FD1;
+    border-radius: 5px;
+}
