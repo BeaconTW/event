@@ -92,7 +92,7 @@ class createEvent extends Component {
    }
 
    creatingClosedHandler = () => {
-       this.state({ creating: false })
+       this.setState({ creating: false });
    }
 
 
@@ -105,7 +105,7 @@ class createEvent extends Component {
             <Modal show={this.state.creating} modalClosed={this.creatingClosedHandler}>
                 <EventReview info={this.state.details} />
             </Modal>
-            
+
             <EventInput type="text" 
                         changed={(event) => this.titleInputHandler(event)}
                         required>
