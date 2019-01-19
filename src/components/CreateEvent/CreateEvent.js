@@ -12,15 +12,16 @@ import Modal from '../UI/Modal/Modal';
 class createEvent extends Component {
     state = {
         details : {
-            eventTitle: 'Event Title',
-            location: 'Location',
-            startDate: 'Start Date',
-            startTime: 'Start Time',
-            endDate: 'End Date',
-            endTime: 'End Time',
-            description: 'Description'
+            eventTitle: undefined,
+            location: undefined,
+            startDate: undefined,
+            startTime: undefined,
+            endDate: undefined,
+            endTime: undefined,
+            description: undefined
         },
-        creating: false
+        creating: false,
+        
 
     }
 
@@ -31,6 +32,7 @@ class createEvent extends Component {
         }
         updatedDetails['eventTitle'] = newTitle;
         this.setState({ details : updatedDetails });
+        
     }
 
     locationInputHandler = ( event ) => {
@@ -40,6 +42,7 @@ class createEvent extends Component {
         }
         updatedDetails['location'] = newLocation;
         this.setState({ details : updatedDetails });
+        
     }
 
     startDateSelectHandler = ( event ) => {
@@ -49,6 +52,7 @@ class createEvent extends Component {
         }
         updatedDetails['startDate'] = newStartDate;
         this.setState({ details : updatedDetails });
+        
     }
 
     startTimeSelectHandler = ( event ) => {
@@ -58,6 +62,7 @@ class createEvent extends Component {
         }
         updatedDetails['startTime'] = newStartTime;
         this.setState({ details : updatedDetails });
+        
     }
 
     endDateSelectHandler = ( event ) => {
@@ -67,6 +72,7 @@ class createEvent extends Component {
         }
         updatedDetails['endDate'] = newEndDate;
         this.setState({ details : updatedDetails });
+        
     }
 
     endTimeSelectHandler = ( event ) => {
@@ -76,6 +82,7 @@ class createEvent extends Component {
         }
         updatedDetails['endTime'] = newEndTime;
         this.setState({ details : updatedDetails });
+        
     }
 
    descriptionHandler = ( event ) => {
@@ -85,10 +92,20 @@ class createEvent extends Component {
         }
         updatedDetails['description'] = newDescription;
         this.setState({ details : updatedDetails });
+        
    }
 
    creatingHandler = () => {
-       this.setState({ creating : true });
+    const currentDetails = this.state.details;   
+    for (let evKey in currentDetails){
+        console.log(typeof(currentDetails[evKey]));
+        if (typeof(currentDetails[evKey]) === "undefined"){
+            console.log('Please fill all the info');
+            this.setState({ creating : false });
+        }else{
+            this.setState({ creating : true });
+        }
+    }
    }
 
    creatingClosedHandler = () => {
